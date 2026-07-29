@@ -82,3 +82,16 @@ The exact command depends on the target condition, but the repository includes t
 - This repository intentionally separates prompt construction, generation, judgment, and plotting.
 - Generated outputs in `datasets/results/` should generally be treated as run artifacts rather than source data.
 - The project includes harmful content for research and evaluation purposes only.
+
+## Citation
+
+Please cite the following paper when using the benchmark, analysis code, or associated assets:
+
+```bibtex
+@inproceedings{tan2026agentic,
+  title     = {Agentic Relationship Harm: Benchmarking and Gating Relational Manipulation in AI Agents},
+  author    = {Tan, Pei-Sze and Igarashi, Tasuku and Echizen, Isao},
+  booktitle = {Proceedings of the 2026 AAAI/ACM Conference on AI, Ethics, and Society},
+  year      = {2026}
+}
+```
