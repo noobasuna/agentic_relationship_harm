@@ -1,4 +1,4 @@
-# Agentic Relationship Harm: Benchmarking and Gating Relational Manipulation in AI Agents
+# Agentic Relationship Harm: Benchmarking and Gating Relational Manipulation in AI Agents (AIES 2026)
 
 Relational manipulation across turns and paraphrases in AI agents.
 
