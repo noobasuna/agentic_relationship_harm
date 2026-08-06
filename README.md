@@ -4,7 +4,7 @@ Relational manipulation across turns and paraphrases in AI agents.
 
 ![hrguard teaser](teaser.jpg)
 
-`hrguard` contains the benchmark, generation scripts, analysis code, and supporting assets for evaluating whether an agent can distinguish harmful relationship-manipulation requests from protective victim-side requests.
+This repository contains the benchmark, generation scripts, analysis code, and supporting assets for evaluating whether an agent can distinguish harmful relationship-manipulation requests from protective victim-side requests in this work.
 
 ## Environment
 
@@ -21,16 +21,19 @@ The OpenClaw-based runs also depend on a working OpenClaw installation and a rea
 Typical workflow:
 
 1. generate model outputs
+
+```bash
+
+```
 2. judge the outputs with the separate judge pipeline
-3. apply the relationship gate
-4. summarize or plot the results
+
+4. apply the relationship gate
 
 The exact command depends on the target condition, but the repository includes the scripts needed for each stage.
 
 ## Notes
 
 - This repository intentionally separates prompt construction, generation, judgment, and plotting.
-- Generated outputs in `datasets/results/` should generally be treated as run artifacts rather than source data.
 - The project includes harmful content for research and evaluation purposes only.
 
 ## Citation
