@@ -14,6 +14,13 @@ pip install -r requirement.txt
 
 The OpenClaw-based runs also depend on a working OpenClaw installation and a reachable model backend, such as a local Ollama server.
 
+## Benchmark 
+
+```bash
+python3 make_openclaw_prompts_structured.py \
+  --output dataset/openclaw_structured_110.jsonl
+```
+
 ## Running judgment and analysis
 
 Typical workflow:
