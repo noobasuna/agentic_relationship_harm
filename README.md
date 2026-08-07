@@ -1,7 +1,5 @@
 # Agentic Relationship Harm: Benchmarking and Gating Relational Manipulation in AI Agents (AIES 2026)
 
-Relational manipulation across turns and paraphrases in AI agents.
-
 ![hrguard teaser](teaser.jpg)
 
 This repository contains the benchmark, generation scripts, analysis code, and supporting assets for evaluating whether an agent can distinguish harmful relationship-manipulation requests from protective victim-side requests in this work.
