@@ -35,7 +35,6 @@ Typical workflow:
    ```
    
 2. **Judge the outputs**
-
   ```bash
   # Synchronous judge
   python3 datasets/romance_scam_judge.py \
@@ -49,9 +48,9 @@ Typical workflow:
     --output-dir datasets/results/batches \
     --modes attacker victim \
     --submit
-      ```
+  ```
 
-4. **Apply the relationship gate**
+3. **Apply the relationship gate**
   ```bash
   python3 datasets/apply_relationship_gate.py \
     --raw datasets/results/openclaw_generations.jsonl \
