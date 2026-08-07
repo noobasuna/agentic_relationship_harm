@@ -20,15 +20,46 @@ The OpenClaw-based runs also depend on a working OpenClaw installation and a rea
 
 Typical workflow:
 
-1. generate model outputs
+1. **Generate model outputs**
+   ```bash
+   # Real OpenClaw agent runs
+   python3 datasets/openclaw_generate_real.py \
+     --input datasets/dataset/openclaw_structured_1100_current.jsonl \
+     --output datasets/results/openclaw_generations.jsonl
 
-```bash
+   # Optional: GPT/API surrogate baseline
+   python3 datasets/openclaw_generate_outputs.py \
+     --input datasets/dataset/openclaw_structured_1100_current.jsonl \
+     --output datasets/results/openclaw_surrogate_generations.jsonl \
+     --condition no-defense
+   ```
+   
+2. **Judge the outputs**
 
-```
-2. judge the outputs with the separate judge pipeline
+  ```bash
+  # Synchronous judge
+  python3 datasets/romance_scam_judge.py \
+    --input datasets/results/openclaw_generations.jsonl \
+    --output datasets/results/openclaw_judged.jsonl \
+    --transport openai
+  
+  # Or the separate batch judge pipeline
+  python3 datasets/openclaw_judge_batch.py \
+    --input datasets/results/openclaw_generations.jsonl \
+    --output-dir datasets/results/batches \
+    --modes attacker victim \
+    --submit
+      ```
 
-4. apply the relationship gate
+4. **Apply the relationship gate**
+  ```bash
+  python3 datasets/apply_relationship_gate.py \
+    --raw datasets/results/openclaw_generations.jsonl \
+    --judged datasets/results/openclaw_judged.jsonl \
+    --output datasets/results/openclaw_gated.jsonl
+  ```
 
+Adjust the `--input` / `--output` paths to match the condition you’re running.
 The exact command depends on the target condition, but the repository includes the scripts needed for each stage.
 
 ## Notes
