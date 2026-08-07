@@ -11,7 +11,7 @@ This repository contains the benchmark, generation scripts, analysis code, and s
 The code was developed with Python 3.10+. For the benchmark scripts:
 
 ```bash
-pip install -r datasets/requirement.txt
+pip install -r requirement.txt
 ```
 
 The OpenClaw-based runs also depend on a working OpenClaw installation and a reachable model backend, such as a local Ollama server.
@@ -23,39 +23,39 @@ Typical workflow:
 1. **Generate model outputs**
 ```bash
 # Real OpenClaw agent runs
-python3 datasets/openclaw_generate_real.py \
-  --input datasets/dataset/openclaw_structured_1100_current.jsonl \
-  --output datasets/results/openclaw_generations.jsonl
+python3 openclaw_generate_real.py \
+  --input dataset/openclaw_structured_1100_current.jsonl \
+  --output results/openclaw_generations.jsonl
 
 # Optional: GPT/API surrogate baseline
-python3 datasets/openclaw_generate_outputs.py \
-  --input datasets/dataset/openclaw_structured_1100_current.jsonl \
-  --output datasets/results/openclaw_surrogate_generations.jsonl \
+python3 openclaw_generate_outputs.py \
+  --input dataset/openclaw_structured_1100_current.jsonl \
+  --output results/openclaw_surrogate_generations.jsonl \
   --condition no-defense
 ```
    
 2. **Judge the outputs**
 ```bash
 # Synchronous judge
-python3 datasets/main_judge.py \
- --input datasets/results/openclaw_generations.jsonl \
- --output datasets/results/openclaw_judged.jsonl \
+python3 main_judge.py \
+ --input results/openclaw_generations.jsonl \
+ --output results/openclaw_judged.jsonl \
  --transport openai
 
 # Or the separate batch judge pipeline
-python3 datasets/openclaw_judge_batch.py \
- --input datasets/results/openclaw_generations.jsonl \
- --output-dir datasets/results/batches \
+python3 openclaw_judge_batch.py \
+ --input results/openclaw_generations.jsonl \
+ --output-dir results/batches \
  --modes attacker victim \
  --submit
 ```
 
 3. **Apply the relationship gate**
 ```bash
-python3 datasets/apply_relationship_gate.py \
- --raw datasets/results/openclaw_generations.jsonl \
- --judged datasets/results/openclaw_judged.jsonl \
- --output datasets/results/openclaw_gated.jsonl
+python3 apply_relationship_gate.py \
+ --raw results/openclaw_generations.jsonl \
+ --judged results/openclaw_judged.jsonl \
+ --output results/openclaw_gated.jsonl
 ```
 
 Adjust the `--input` / `--output` paths to match the condition you’re running.
